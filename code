@@ -1,0 +1,54 @@
+int b = D2;
+int g = D3;
+int r= D4;
+int color = 0;
+
+
+void setup() {
+    pinMode(b, OUTPUT);
+    pinMode(g, OUTPUT);
+    pinMode(r, OUTPUT);
+    pinMode(D7, OUTPUT);
+    Particle.function("color",lighting);
+}
+
+void loop() {
+    
+}
+
+int lighting(String value)
+{
+    
+    if (value == "red")
+    {
+        color = r;
+        digitalWrite(color, HIGH);
+        digitalWrite(g, LOW);
+        digitalWrite(b, LOW);
+        
+        
+        return 1;
+    }
+    else if (value == "green")
+    {
+        color = g;
+        digitalWrite(color, HIGH);
+        digitalWrite(r, LOW);
+        digitalWrite(b, LOW);
+        
+        return 1;
+    }
+    else if (value == "blue")
+    {
+        color = b;
+        digitalWrite(color, HIGH);
+        digitalWrite(g, LOW);
+        digitalWrite(r, LOW);
+        
+        return 1;
+    }
+        
+    
+    
+    else return 0;
+}
